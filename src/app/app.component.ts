@@ -10,6 +10,8 @@ export class AppComponent {
 
   title: String = 'hola';
 
+  power = 10;
+
   products: Product[] = [
     {
       id: '1',

@@ -13,6 +13,8 @@ export class ProductComponent implements OnInit {
   // Componente que va a enviar un evento a otro componente al momento que suceda algo;
   @Output() productClicked: EventEmitter<any> = new EventEmitter();
 
+  today = new Date();
+
   constructor() { }
 
   ngOnInit(): void {

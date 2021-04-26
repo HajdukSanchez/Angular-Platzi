@@ -1,3 +1,7 @@
+<input type="text" [(ngModel)]="power">
+<!-- Se utiliza el PIPE que se creó automáticamente -->
+{{power | exponential}}
+
 <div [ngSwitch]="title">
   <p *ngSwitchCase="'Uno'">Uno</p>
   <p *ngSwitchCase="'Dos'">Dos</p>
