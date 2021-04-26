@@ -5,7 +5,7 @@
   <p *ngSwitchDefault>No hay número</p>
 </div>
 
-<div *ngFor="let product of products">
-  {{ product.title }}
-  {{ product.image }}
+<div class="product-grid">
+  <!-- De esta manera se puede enviar propiedades a un componente -->
+  <app-product *ngFor="let product of products" [product]="product" (productClicked)="onClickProduct($event)"></app-product>
 </div>

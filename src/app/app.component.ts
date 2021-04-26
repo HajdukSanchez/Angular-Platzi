@@ -7,7 +7,9 @@ import { Product } from './interfaces/product';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title: string = 'hola';
+
+  title: String = 'hola';
+
   products: Product[] = [
     {
       id: '1',
@@ -52,4 +54,8 @@ export class AppComponent {
       description: 'bla bla bla bla bla'
     }
   ];
+
+  onClickProduct(id: number): void {
+    console.log(id);
+  }
 }
