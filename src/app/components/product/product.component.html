@@ -7,3 +7,4 @@
 <!-- Este es un PIPE para mostrar un formato de fecha específico -->
 <p>{{ today | date:'shortDate' }}</p>
 <button (click)="addToCart()">Add to cart</button>
+<a [routerLink]="['/products', product.id]">See more</a>
