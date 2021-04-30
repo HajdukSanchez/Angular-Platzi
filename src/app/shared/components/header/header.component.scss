@@ -1,9 +1,13 @@
 nav > a {
   padding: 5px;
   text-decoration: none;
-  color: gray;
 
   &.active {
-    color: red;
+    color: white;
+    background-color: rgb(186, 186, 192);
   }
+}
+
+.header-row {
+  width: 100%;
 }

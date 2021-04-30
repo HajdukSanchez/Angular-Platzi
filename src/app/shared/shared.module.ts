@@ -6,6 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HighligthDirective } from './directives/highligth/highligth.directive';
 import { ExponentialPipe } from './pipes/exponential/exponential.pipe';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MaterialModule
   ],
   // Es necesario darle el metadata de exports para que así se puedan utilizar los componentes, directivas y pipes que se almancenen en este modulo
   exports: [

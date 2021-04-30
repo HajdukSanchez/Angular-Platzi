@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from 'src/app/interfaces/product';
 
@@ -6,58 +7,18 @@ import { Product } from 'src/app/interfaces/product';
 })
 export class ProductsService {
 
-  products: Product[] = [
-    {
-      id: '1',
-      image: 'assets/images/camiseta.png',
-      title: 'Camiseta',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-    {
-      id: '2',
-      image: 'assets/images/hoodie.png',
-      title: 'Hoodie',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-    {
-      id: '3',
-      image: 'assets/images/mug.png',
-      title: 'Mug',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-    {
-      id: '4',
-      image: 'assets/images/pin.png',
-      title: 'Pin',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-    {
-      id: '5',
-      image: 'assets/images/stickers1.png',
-      title: 'Stickers',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-    {
-      id: '6',
-      image: 'assets/images/stickers2.png',
-      title: 'Stickers',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    }
-  ];
+  private URL = 'http://platzi-store.herokuapp.com/products';
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   getAllProducts() {
-    return this.products;
+    // De esta manera se le dice a angular el tipo de dato que va a resovler el método GET
+    return this.http.get<Product[]>(this.URL);
   }
 
   getProduct(id: string) {
-    return this.products.find(p => p.id === id);
+    return this.http.get(`${this.URL}/${id}`);
   }
 }

@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h3 appHighligth>{{ product.title | uppercase}}</h3>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <strong>{{ product.price | currency }}</strong>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <div class="crop-image">
+    <img [src]="product.image" alt="product.title" />
+  </div>
+  <mat-card-content>
+    <!-- Este PIPE nos permite poner nuestro número en formato de moneda -->
+    <!-- Este es un PIPE que permite cortar en un rango especifico de el dato Description -->
+    <p>{{ product.description | slice:0:10 }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-raised-button [routerLink]="['/products', product.id]">See more</a>
+    <button (click)="addToCart()" mat-raised-button color="primary">Add to cart</button>
+  </mat-card-actions>
+  <!-- Este es un PIPE para mostrar un formato de fecha específico -->
+  <!-- <p>{{ today | date:'shortDate' }}</p> -->
+</mat-card>

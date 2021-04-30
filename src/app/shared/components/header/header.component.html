@@ -1,6 +1,16 @@
-<nav>
-  <!-- El ROUTER LINK aplicará la clase CSS que se le especifique, cuando el router se encuentre en dicha ruta -->
-  <a routerLink="/home" routerLinkActive="active">Home</a>
-  <a routerLink="/products" routerLinkActive="active">Products</a>
-  <a routerLink="/contact" routerLinkActive="active">Contact</a>
-</nav>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div class="row between-xs middle-xs header-row">
+      <nav>
+        <!-- El ROUTER LINK aplicará la clase CSS que se le especifique, cuando el router se encuentre en dicha ruta -->
+        <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+        <a mat-button routerLink="/products" routerLinkActive="active">Products</a>
+        <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
+      </nav>
+      <a mat-raised-button matBadge="15" matBadgeColor="warn">
+        <mat-icon>shopping_cart</mat-icon>
+        Cart
+      </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
