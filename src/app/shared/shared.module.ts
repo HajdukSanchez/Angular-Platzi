@@ -7,6 +7,7 @@ import { HighligthDirective } from './directives/highligth/highligth.directive';
 import { ExponentialPipe } from './pipes/exponential/exponential.pipe';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { MaterialModule } from '../material/material.module';
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   // Es necesario darle el metadata de exports para que así se puedan utilizar los componentes, directivas y pipes que se almancenen en este modulo
   exports: [

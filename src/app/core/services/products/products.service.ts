@@ -25,7 +25,7 @@ export class ProductsService {
   }
 
   createProduct(product: Product) {
-    return this.http.post(this.URL, product);
+    return this.http.post<Product>(this.URL, product);
   }
 
   // Con el Partial le decimos que vamo a enviarle una parte del objeto que vamos a actualizar de donde obtenemos la información.
