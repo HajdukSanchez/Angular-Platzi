@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-platzi-614d3": {
+      "hosting": {
+        "platzi-store": [
+          "angular-platzi-614d3"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-platzi-614d3"
+  }
+}

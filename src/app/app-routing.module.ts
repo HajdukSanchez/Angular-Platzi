@@ -17,19 +17,20 @@ const routes: Routes = [
       {
         path: 'home',
         loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule), // Ahora hay que hacer llamado al modulo
-        canActivate: [AdminGuard]
       },
       // El slash del path no es obligatorio, es opcional
       // Por lo general se utiliza sin el slash
       {
         path: 'products',
         loadChildren: () => import('./product/product.module').then(m => m.ProductModule),
-        canActivate: [AdminGuard]
       },
       {
         path: 'contact',
         loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule),
-        canActivate: [AdminGuard] // Se le agrega un guardian para proteger la ruta de contact a ciertos usuarios
+      },
+      {
+        path: 'order',
+        loadChildren: () => import('./order/order.module').then(m => m.OrderModule),
       },
     ]
   }, // No path redirection
@@ -39,7 +40,12 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canActivate: [AdminGuard], // Autneticación para uso exclusivo del administrador
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: '**',

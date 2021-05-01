@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 import { ProductsService } from 'src/app/core/services/products/products.service';
 import { MyValidators } from 'src/app/utils/validators';
 
@@ -12,12 +15,14 @@ import { MyValidators } from 'src/app/utils/validators';
 export class FormProductComponent implements OnInit {
 
   form: FormGroup | any;
+  imageURL$?: Observable<any>;
 
   constructor(
     // El form builder sirve para crear componentes de un formaulario desde la clase con sus validaciones y demas
     private formBuilder: FormBuilder,
     private productsService: ProductsService,
-    private router: Router
+    private router: Router,
+    private storage: AngularFireStorage
   ) {
     this.buildForm();
   }
@@ -50,5 +55,24 @@ export class FormProductComponent implements OnInit {
 
   get priceFields() {
     return this.form.get('price');
+  }
+
+  uploadFile(event: Event | any) {
+    const file = event.target.files[0]; // Se obtiene el archivo
+    const name = 'images'; // Se indica el nombre del archivo
+    const fileRef = this.storage.ref(name) // Se saca una referencia del archivo que se va a almacenar
+    const task = this.storage.upload(name, file); // Se pide que suba el archivo con su respectivo nombre
+
+    // Esto nos va a permitir saber cuando suba el archivo o si no fue posible
+    task.snapshotChanges()
+      .pipe(
+        finalize(() => {
+          this.imageURL$ = fileRef.getDownloadURL(); // Nos muestra la URL donde quedó almacenada
+          this.imageURL$.subscribe((url: string) => {
+            this.form.get('image').setValue(url);
+          })
+        })
+      )
+      .subscribe();
   }
 }

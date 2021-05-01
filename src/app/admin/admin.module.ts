@@ -14,7 +14,15 @@ import { FormEditComponent } from './components/form-edit/form-edit.component';
 
 
 @NgModule({
-  declarations: [ProductFormComponent, NavComponent, TableComponent, DashboardComponent, ProductListComponent, FormProductComponent, FormEditComponent],
+  declarations: [
+    ProductFormComponent,
+    NavComponent,
+    TableComponent,
+    DashboardComponent,
+    ProductListComponent,
+    FormProductComponent,
+    FormEditComponent
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
